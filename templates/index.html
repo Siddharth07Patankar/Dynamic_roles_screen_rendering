@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+ 
+{% block title %}Home{% endblock %}
+ 
+{% block content %}
+<h1 class="mb-4">Welcome, {{ session['username'] }}</h1>
+<p>Select an option from the sidebar to get started.</p>
+{% endblock %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">MyApp</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1 class="mb-4">Welcome, {{ session['username'] }}</h1>
+        <div class="list-group">
+            {% if session['role'] == 'role1' %}
+            <a href="{{ url_for('components') }}" class="list-group-item list-group-item-action">Components</a>
+            <a href="{{ url_for('inventory') }}" class="list-group-item list-group-item-action">Inventory</a>
+            <a href="{{ url_for('dashboard') }}" class="list-group-item list-group-item-action">Dashboard</a>
+            {% elif session['role'] == 'role2' %}
+            <a href="{{ url_for('vendors') }}" class="list-group-item list-group-item-action">Vendors</a>
+            <a href="{{ url_for('boms') }}" class="list-group-item list-group-item-action">BOMs</a>
+            <a href="{{ url_for('purchaseorders') }}" class="list-group-item list-group-item-action">Purchase Orders</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> -->

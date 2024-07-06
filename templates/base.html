@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}Home{% endblock %}</title>
+<link href="
+https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+rel="stylesheet">
+<style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+</style>
+</head>
+<body>
+<div class="sidebar">
+<h3 class="text-center">MyApp</h3>
+<div class="list-group">
+            {% for screen in screens %}
+<a href="{{ url_for(screen) }}" class="list-group-item list-group-item-action {% if request.endpoint == screen %}active{% endif %}">{{ screen|capitalize }}</a>
+            {% endfor %}
+<a href="{{ url_for('logout') }}" class="list-group-item list-group-item-action">Logout</a>
+</div>
+</div>
+<div class="content">
+        {% block content %}{% endblock %}
+</div>
+</body>
+</html>
